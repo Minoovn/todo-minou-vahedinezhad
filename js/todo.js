@@ -89,6 +89,10 @@ class Todos {
         this.#backend_url = url
     }
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 7b8bf7f937eab3994b68c354d1309e4a14828b32
     get tasks() {
         return new Promise(async (resolve, reject) => {
             try {
@@ -102,6 +106,10 @@ class Todos {
         });
     }
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 7b8bf7f937eab3994b68c354d1309e4a14828b32
     addTask = async (text) => {
         try {
             const json = JSON.stringify({ description: text }); 
@@ -120,6 +128,10 @@ class Todos {
         }
     }
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 7b8bf7f937eab3994b68c354d1309e4a14828b32
     removeTask = (id) => {
         return new Promise(async (resolve, reject) => {
             try {
@@ -135,6 +147,10 @@ class Todos {
         });
     }
 
+<<<<<<< HEAD
+=======
+   
+>>>>>>> 7b8bf7f937eab3994b68c354d1309e4a14828b32
     #readJson = (taskAsJson) => {
         taskAsJson.forEach(node => {
             const newTask = new task(node.id, node.description); 
@@ -142,12 +158,20 @@ class Todos {
         });
     }
 
+<<<<<<< HEAD
+=======
+   
+>>>>>>> 7b8bf7f937eab3994b68c354d1309e4a14828b32
     #addToArray = (id, text) => {
         const newTask = new task(id, text); 
         this.#tasks.push(newTask); 
         return newTask; 
     }
 
+<<<<<<< HEAD
+=======
+   
+>>>>>>> 7b8bf7f937eab3994b68c354d1309e4a14828b32
     #removeFromArray = (id) => {
         const arrayWithoutRemoved = this.#tasks.filter(task => task.id !== id);
         this.#tasks = arrayWithoutRemoved; 

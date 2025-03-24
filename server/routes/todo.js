@@ -15,6 +15,10 @@ todoRouter.get("/", async (req, res) => {
     }
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b8bf7f937eab3994b68c354d1309e4a14828b32
 todoRouter.post("/new", async (req, res) => {
     try {
         const result = await quarry('INSERT INTO task (description) VALUES ($1) RETURNING *', [req.body.description]);
@@ -26,6 +30,10 @@ todoRouter.post("/new", async (req, res) => {
     }
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b8bf7f937eab3994b68c354d1309e4a14828b32
 todoRouter.delete("/delete/:id", async (req, res) => {
     const id = Number(req.params.id);
     try {
@@ -38,6 +46,10 @@ todoRouter.delete("/delete/:id", async (req, res) => {
     }
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b8bf7f937eab3994b68c354d1309e4a14828b32
 module.exports = { todoRouter };
 
 
