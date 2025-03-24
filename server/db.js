@@ -28,17 +28,22 @@ module.exports = { query }*/
 require('dotenv').config()
 const { Pool } = require('pg')
 
-// فقط یکبار اتصال به دیتابیس برقرار می‌شود
-const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT
-})
+let pool
+
+const openDb = () => {
+    pool = new Pool({
+        user: process.env.DB_USER,
+        host: process.env.DB_HOST,
+        database: process.env.DB_NAME,
+        password: process.env.DB_PASSWORD,
+        port: process.env.DB_PORT,
+        ssl: { rejectUnauthorized: false } 
+    })
+}
 
 const query = async (sql, values = []) => {
     try {
+        if (!pool) openDb() 
         const result = await pool.query(sql, values)
         return result
     } catch (error) {
@@ -47,3 +52,4 @@ const query = async (sql, values = []) => {
 }
 
 module.exports = { query }
+

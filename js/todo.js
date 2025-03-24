@@ -89,7 +89,6 @@ class Todos {
         this.#backend_url = url
     }
 
-    // دریافت تمام وظایف
     get tasks() {
         return new Promise(async (resolve, reject) => {
             try {
@@ -103,7 +102,6 @@ class Todos {
         });
     }
 
-    // افزودن وظیفه جدید
     addTask = async (text) => {
         try {
             const json = JSON.stringify({ description: text }); 
@@ -122,7 +120,6 @@ class Todos {
         }
     }
 
-    // حذف وظیفه
     removeTask = (id) => {
         return new Promise(async (resolve, reject) => {
             try {
@@ -138,7 +135,6 @@ class Todos {
         });
     }
 
-    // خواندن داده‌های JSON
     #readJson = (taskAsJson) => {
         taskAsJson.forEach(node => {
             const newTask = new task(node.id, node.description); 
@@ -146,14 +142,12 @@ class Todos {
         });
     }
 
-    // افزودن وظیفه به آرایه
     #addToArray = (id, text) => {
         const newTask = new task(id, text); 
         this.#tasks.push(newTask); 
         return newTask; 
     }
 
-    // حذف وظیفه از آرایه
     #removeFromArray = (id) => {
         const arrayWithoutRemoved = this.#tasks.filter(task => task.id !== id);
         this.#tasks = arrayWithoutRemoved; 
