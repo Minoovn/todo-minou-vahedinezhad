@@ -1,5 +1,4 @@
-// اصلاحات در سمت کلاینت (مرورگر)
-import { todos } from './';  // فرض می‌کنیم todo.js در همان مسیر است.
+import { todos } from './';  
 const backendUrl = 'http://localhost:3001';
 const todosInstance = new todos(backendUrl);
 const list = document.querySelector('ul');
