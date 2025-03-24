@@ -2,7 +2,7 @@ const express = require('express');
 const quarry = require('../db.js');
 const todoRouter = express.Router();
 
-// روت برای دریافت تمام تسک‌ها
+
 todoRouter.get("/", async (req, res) => {
     try {
         const result = await quarry('SELECT * FROM task');
@@ -15,7 +15,7 @@ todoRouter.get("/", async (req, res) => {
     }
 });
 
-// روت برای اضافه کردن تسک جدید
+
 todoRouter.post("/new", async (req, res) => {
     try {
         const result = await quarry('INSERT INTO task (description) VALUES ($1) RETURNING *', [req.body.description]);
@@ -27,7 +27,7 @@ todoRouter.post("/new", async (req, res) => {
     }
 });
 
-// روت برای حذف تسک
+
 todoRouter.delete("/delete/:id", async (req, res) => {
     const id = Number(req.params.id);
     try {
@@ -40,7 +40,7 @@ todoRouter.delete("/delete/:id", async (req, res) => {
     }
 });
 
-// صادر کردن روت‌ها
+
 module.exports = { todoRouter };
 
 
